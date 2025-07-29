@@ -1,0 +1,67 @@
+{
+  "nom": "Clara Moreau",
+  "titre": "UX/UI Designer",
+  "photo": "",
+  "profil": "Designer créative spécialisée en expériences utilisateurs, avec 4 ans d'expérience dans le design d'interfaces web & mobile. Passionnée par l’esthétique fonctionnelle et l’accessibilité.",
+
+  "contact": {
+    "email": "clara.moreau@email.com",
+    "telephone": "+33 7 89 12 34 56",
+    "ville": "Paris, France",
+    "linkedin": "https://linkedin.com/in/claramoreau",
+    "portfolio": "https://claradesign.fr"
+  },
+
+  "competences": [
+    { "nom": "Figma", "niveau": 95 },
+    { "nom": "Adobe XD", "niveau": 85 },
+    { "nom": "HTML/CSS", "niveau": 80 },
+    { "nom": "Design Thinking", "niveau": 90 }
+  ],
+
+  "langues": [
+    { "langue": "Français", "niveau": 5 },
+    { "langue": "Anglais", "niveau": 4 }
+  ],
+
+  "experiences": [
+    {
+      "poste": "Lead Designer",
+      "entreprise": "StudioGraphik",
+      "periode": "2022 - Aujourd'hui",
+      "description": "Refonte UX complète de plusieurs plateformes e-commerce. Création de design systems, wireframes, prototypes interactifs avec Figma."
+    },
+    {
+      "poste": "Designer UI",
+      "entreprise": "WebFactory",
+      "periode": "2019 - 2022",
+      "description": "Design de sites vitrines, interfaces SaaS et applications mobiles avec Adobe XD, Sketch, Figma."
+    },
+    {
+      "poste": "Designer UI",
+      "entreprise": "WebFactory",
+      "periode": "2019 - 2022",
+      "description": "Design de sites vitrines, interfaces SaaS et applications mobiles avec Adobe XD, Sketch, Figma."
+    }
+  ],
+
+  "formations": [
+    {
+      "diplome": "Licence Design Multimédia",
+      "ecole": "École de Design Nantes",
+      "periode": "2016 - 2019",
+      "description": "Spécialisation en UX/UI, ergonomie numérique et conception graphique."
+    }
+  ],
+
+  "projets": [
+    {
+      "nom": "Portfolio personnel",
+      "description": "Design et développement d’un site personnel (HTML/CSS/JS) pour exposer mes projets."
+    },
+    {
+      "nom": "Application bien-être",
+      "description": "Prototype d’application de méditation (UX research, design mobile-first, A/B testing)."
+    }
+  ]
+}
