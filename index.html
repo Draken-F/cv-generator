@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>CV - Clara Moreau</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" id="themecss" href="">
+  
+</head>
+<body>
+  <div>
+    
+ 
+  <div style="padding: 10px;">
+    <a href="home.html"><button style="background-color: rgb(255, 0, 0);" id="retour" >--Retour</button></a>
+    
+  </div>
+  <div style="text-align:right; padding: 10px;">
+    <input type="file" id="fileInput" accept=".json" style="display:none;" />
+    <button onclick="document.getElementById('fileInput').click()">Importer un fichier JSON</button>
+    <button id="reset">Reinitialiser le CV</button>
+    <!-- Ajoute ce bouton dans la div du haut -->
+    <button id="downloadCV">Télécharger le CV</button>
+  </div>
+ </div>
+  <div id="cv-wrapper">
+
+    <div class="left-side">
+      <h1 class="name"></h1>
+      <h2></h2>
+
+      <section>
+        <h2>Profil</h2>
+        <p></p>
+      </section>
+
+      <section>
+        <h2>Expérience</h2>
+        <div class="item">
+          <h3></h3>
+          <p class="date"></p>
+          <p></p>
+        </div>
+        <div class="item">
+          <h3></h3>
+          <p class="date"></p>
+          <p></p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Formation</h2>
+        <div class="item">
+          <h3></h3>
+          <p class="date"></p>
+          <p></p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Projets</h2>
+        <div class="item">
+          <h3></h3>
+          <p></p>
+        </div>
+        <div class="item">
+          <h3></h3>
+          <p></p>
+        </div>
+      </section>
+    </div>
+
+    <div class="right-side">
+      <div class="profile-photo-container">
+        <input type="file" id="chargefile" accept="image/*" style="display: none;">
+        <br><br>
+        <img id="preview" src="" alt="Aperçu de l’image" style="max-width: 300px; display: none;" class="profile-img">
+        <label for="imageInput" class="change-photo-btn">📷</label>
+      </div>
+
+      <div class="contact">
+        <h3></h3>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+      </div>
+
+      <div class="skills">
+        <h3></h3>
+        <p></p>
+        <div class="skill-bar"><div></div></div>
+
+        <p></p>
+        <div class="skill-bar"><div></div></div>
+
+        <p></p>
+        <div class="skill-bar"><div></div></div>
+
+        <p></p>
+        <div class="skill-bar"><div></div></div>
+      </div>
+
+      <div class="languages">
+        <h3>Langues</h3>
+        <p> <span class="language-stars"></span></p>
+        <p><span class="language-stars"></span></p>
+      </div>
+    </div>
+  </div>
+  
+  <script type="module" src="./src/main.js"></script>
+
+</body>
+</html>
