@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Choisissez votre modèle de CV</title>
+  <link rel="stylesheet" href="styles/select.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 40px;
+      background-color: #f7f7f7;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .models {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+    .model-card {
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: 0.3s;
+      background: white;
+      width: 240px;
+      cursor: pointer;
+    }
+    .model-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+    .model-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .model-card p {
+      text-align: center;
+      margin: 10px 0;
+      font-weight: bold;
+    }
+    .button {
+      background-color: #2ecc71;
+      color: white;
+      padding: 8px 16px;
+      border: none;
+      margin-left: 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      background-color: #75e482b7;
+    }
+  </style>
+</head>
+<body>
+  <h1>Choisissez un modèle de CV</h1>
+  <div class="models">
+    <div class="model-card" onclick="selectModel('model1')">
+      <img src="./model/model1.png" alt="Modèle 1">
+      <p>Modèle Classique</p>
+    </div>
+    <div class="model-card" onclick="selectModel('model2')">
+      <img src="assets/previews/model2.png" alt="Modèle 2">
+      <p>Modèle Moderne</p>
+    </div>
+    <div class="model-card" onclick="selectModel('model3')">
+      <img src="assets/previews/model3.png" alt="Modèle 3">
+      <p>Modèle Coloré</p>
+    </div>
+    <div class="model-card" onclick="selectModel('model4')">
+      <img src="assets/previews/model3.png" alt="Modèle 3">
+      <p>Modèle Coloré</p>
+    </div>
+    <!-- Ajoute autant de modèles que tu veux -->
+  </div>
+  <div style="text-align:right; padding: 10px;">
+    <input type="file" id="fileInput" accept=".json" style="display:none;" />
+    <button onclick="document.getElementById('fileInput').click()">Importer un fichier JSON</button>
+  </div>
+  <script>
+    function selectModel(modelname) {
+      window.location.href = 'index.html?model=' + modelname;
+    }
+  </script>
+  
+</body>
+</html>
