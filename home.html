@@ -37,7 +37,7 @@
     }
     .model-card img {
       width: 100%;
-      height: auto;
+      height: 300px;
       display: block;
     }
     .model-card p {
@@ -58,38 +58,73 @@
     .button:hover {
       background-color: #75e482b7;
     }
+    .model-card.selected {
+      border: 2px solid #0000ff45;
+      box-shadow: 0 0 10px #0000ff80;
+    }
   </style>
 </head>
 <body>
   <h1>Choisissez un modèle de CV</h1>
   <div class="models">
-    <div class="model-card" onclick="selectModel('model1')">
+    <div class="model-card" onclick="selectModel('model1', this)">
       <img src="./model/model1.png" alt="Modèle 1">
       <p>Modèle Classique</p>
     </div>
-    <div class="model-card" onclick="selectModel('model2')">
-      <img src="assets/previews/model2.png" alt="Modèle 2">
+    <div class="model-card" onclick="selectModel('model2', this)">
+      <img src="./model/image.png" alt="Modèle 2">
       <p>Modèle Moderne</p>
     </div>
-    <div class="model-card" onclick="selectModel('model3')">
-      <img src="assets/previews/model3.png" alt="Modèle 3">
+    <div class="model-card" onclick="selectModel('model3', this)">
+      <img src="./model/image1.png" alt="Modèle 3">
       <p>Modèle Coloré</p>
     </div>
-    <div class="model-card" onclick="selectModel('model4')">
-      <img src="assets/previews/model3.png" alt="Modèle 3">
-      <p>Modèle Coloré</p>
+    <div class="model-card" onclick="selectModel('model4', this)">
+      <img src="./model/image2.png" alt="Modèle 4">
+      <p>Modèle Élégant</p>
     </div>
-    <!-- Ajoute autant de modèles que tu veux -->
   </div>
   <div style="text-align:right; padding: 10px;">
     <input type="file" id="fileInput" accept=".json" style="display:none;" />
-    <button onclick="document.getElementById('fileInput').click()">Importer un fichier JSON</button>
+    <button id="importBtn" disabled>Importer un fichier JSON</button>
   </div>
   <script>
-    function selectModel(modelname) {
-      window.location.href = 'index.html?model=' + modelname;
+    let selectedModel = null;
+    function selectModel(modelname, el) {
+      selectedModel = modelname;
+      // Visuel sélection
+      document.querySelectorAll('.model-card').forEach(card => card.classList.remove('selected'));
+      el.classList.add('selected');
+      // Active le bouton d'import
+      document.getElementById('importBtn').disabled = false;
     }
+
+    const importBtn = document.getElementById('importBtn');
+    const jsonInput = document.getElementById('fileInput');
+
+    importBtn.addEventListener('click', () => {
+      if (!selectedModel) {
+        alert("Veuillez d'abord sélectionner un modèle.");
+        return;
+      }
+      jsonInput.click();
+    });
+
+    jsonInput.addEventListener('change', function() {
+      const file = this.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        try {
+          localStorage.setItem('cvData', e.target.result);
+          // Redirige vers index.html avec le modèle choisi
+          window.location.href = `index.html?model=${selectedModel}`;
+        } catch (err) {
+          alert("Erreur lors de l'import du fichier JSON.");
+        }
+      };
+      reader.readAsText(file);
+    });
   </script>
-  
 </body>
 </html>

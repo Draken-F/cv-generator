@@ -35,8 +35,8 @@ body {
 
 #cv-wrapper {
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  max-width: 1400px;
+  grid-template-columns:2fr 1fr;
+  max-width: 1200px;
   margin: 2.5rem auto;
   background: var(--white);
   box-shadow: var(--shadow-lg);
