@@ -72,15 +72,15 @@
       <p>Modèle Classique</p>
     </div>
     <div class="model-card" onclick="selectModel('model2', this)">
-      <img src="./model/image.png" alt="Modèle 2">
+      <img src="./model/model2.png" alt="Modèle 2">
       <p>Modèle Moderne</p>
     </div>
     <div class="model-card" onclick="selectModel('model3', this)">
-      <img src="./model/image1.png" alt="Modèle 3">
+      <img src="./model/model3.png" alt="Modèle 3">
       <p>Modèle Coloré</p>
     </div>
     <div class="model-card" onclick="selectModel('model4', this)">
-      <img src="./model/image2.png" alt="Modèle 4">
+      <img src="./model/model4.png" alt="Modèle 4">
       <p>Modèle Élégant</p>
     </div>
   </div>
@@ -118,7 +118,7 @@
         try {
           localStorage.setItem('cvData', e.target.result);
           // Redirige vers index.html avec le modèle choisi
-          window.location.href = `index.html?model=${selectedModel}`;
+          window.location.href = `cv-model/${selectedModel}.html`;
         } catch (err) {
           alert("Erreur lors de l'import du fichier JSON.");
         }
