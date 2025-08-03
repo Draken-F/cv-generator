@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>CV - Clara Moreau</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" id="themecss" href="../style/model3.css">
+</head>
+<body>
+    <div>
+        <div style="padding: 10px;">
+            <a href="../home.html" style="background-color: rgb(255, 0, 0); color: white; padding: 8px 16px; border-radius: 5px; text-decoration: none; font-weight: bold;">⟵ Retour</a>
+        </div>
+        <div style="text-align:right; padding: 10px;">
+            <input type="file" id="fileInput" accept=".json" style="display:none;" />
+            <button onclick="document.getElementById('fileInput').click()">Importer un fichier JSON</button>
+            <button id="reset">Reinitialiser le CV</button>
+            <!-- Ajoute ce bouton dans la div du haut -->
+            <button id="downloadCV">Télécharger le CV</button>
+        </div>
+    </div>
+    <!-- Section de sélection de modèle à gauche -->
+    <div style="display: flex; min-height: 100vh;">
+        <!-- Sidebar modèles -->
+        <aside id="model-sidebar">
+            <h3>Modèles</h3>
+            <div class="model-list">
+                <div class="model-card" data-model="model1" onclick="switchModel('model1', this)">
+                    <img src="../model/model.png" alt="Modèle 1">
+                    <span>Classique</span>
+                </div>
+                <div class="model-card" data-model="model2" onclick="switchModel('model1', this)">
+                    <img src="../model/model2.png" alt="Modèle 3">
+                    <span>Classique</span>
+                </div>
+                <div class="model-card" data-model="model4" onclick="switchModel('model2', this)">
+                    <img src="../model/model3.png" alt="Modèle 2">
+                    <span>Moderne</span>
+                </div>
+                <div class="model-card" data-model="model3" onclick="switchModel('model3', this)">
+                    <img src="../model/model4.png" alt="Modèle 3">
+                    <span>Coloré</span>
+                </div>
+                <div class="model-card" data-model="model4" onclick="switchModel('model4', this)">
+                    <img src="../model/model4.png" alt="Modèle 4">
+                    <span>Élégant</span>
+                </div>
+                <!-- Ajoute d'autres modèles ici -->
+            </div>
+        </aside>
+
+        <!-- Contenu principal du CV -->
+        <main style="flex:1; padding: 30px;">
+            <!-- Ton contenu CV ici, par exemple : -->
+            <div id="cv-wrapper">
+                <div class="left-side">
+                    <h1 class="name">Clara Moreau</h1>
+                    <h2>UX/UI Designer</h2>
+
+                    <section>
+                        <h2>Profil</h2>
+                        <p style=" color: rgba(138, 140, 141, 0.299);">Designer créative spécialisée en expériences utilisateurs, avec 4 ans d'expérience dans le design d'interfaces web & mobile. Passionnée par l’ergonomie, les parcours utilisateurs et le design inclusif.</p>
+                    </section>
+
+                    <section>
+                        <h2>Expérience</h2>
+                        <div class="item">
+                            <h3 style=" color: rgba(138, 140, 141, 0.299);">UX Designer — Agence DesignFlow</h3>
+                            <p class="date" style=" color: rgba(138, 140, 141, 0.299);">2022 - Aujourd’hui</p>
+                            <p style=" color: rgba(138, 140, 141, 0.299);">Conception de maquettes haute-fidélité, animation d'ateliers UX, refonte de parcours clients sur applications mobiles.</p>
+                        </div>
+                        <div class="item">
+                            <h3 style=" color: rgba(138, 140, 141, 0.299);">Graphiste Web — Freelance</h3>
+                            <p class="date" style=" color: rgba(138, 140, 141, 0.299);">2020 - 2022</p>
+                            <p style=" color: rgba(138, 140, 141, 0.299);">Création de logos, charte graphique, UI web responsive pour TPE et startups tech.</p>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Formation</h2>
+                        <div class="item">
+                            <h3 style=" color: rgba(138, 140, 141, 0.299);">Master UX/UI Design — ENSAD Paris</h3>
+                            <p class="date" style=" color: rgba(138, 140, 141, 0.299);">2018 - 2020</p>
+                            <p style=" color: rgba(138, 140, 141, 0.299);">Projets en design d'interfaces, ergonomie cognitive, atelier de design d’expérience utilisateur.</p>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Projets</h2>
+                        <div class="item">
+                            <h3 style=" color: rgba(138, 140, 141, 0.299);">Application mobile GreenSteps</h3>
+                            <p style=" color: rgba(138, 140, 141, 0.299);">App de suivi d’habitudes écoresponsables, 50k téléchargements.</p>
+                        </div>
+                        <div class="item">
+                            <h3 style=" color: rgba(138, 140, 141, 0.299);">Refonte site e-commerce NatureShop</h3>
+                            <p style=" color: rgba(138, 140, 141, 0.299);">Augmentation du taux de conversion de +28% après refonte UX.</p>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="right-side">
+                    <div class="profile-photo-container">
+                        <input type="file" id="chargefile" accept="image/*" style="display: none;">
+                        <br><br>
+                        <img id="preview" src="../model/9e837528f01cf3f42119c5aeeed1b336.jpg" alt="Aperçu de l’image" style="max-width: 200px; display: block;" class="profile-img">
+                        <label for="imageInput" class="change-photo-btn">📷</label>
+                    </div>
+
+                    <div class="contact">
+                        <h3 style=" color: rgba(138, 140, 141, 0.299);">Contact</h3>
+                        <p style=" color: rgba(138, 140, 141, 0.299);">Email : clara.moreau@email.com</p>
+                        <p style=" color: rgba(138, 140, 141, 0.299);">Tél : +33 6 00 00 00 00</p>
+                        <p style=" color: rgba(138, 140, 141, 0.299);">LinkedIn : linkedin.com/in/claramoreau</p>
+                        <p style=" color: rgba(138, 140, 141, 0.299);">Ville : Paris, France</p>
+                        <p style=" color: rgba(138, 140, 141, 0.299);">Site : www.claramoreau.design</p>
+                    </div>
+
+                    <div class="skills">
+                        <h3 style=" color: rgba(138, 140, 141, 0.299);">Compétences</h3>
+                        <p></p>
+                        <div class="skill-bar"><div></div></div>
+
+                        <p></p>
+                        <div class="skill-bar"><div></div></div>
+
+                        <p></p>
+                        <div class="skill-bar"><div></div></div>
+
+                        <p></p>
+                        <div class="skill-bar"><div ></div></div>    
+                    </div>
+
+                    <div class="languages">
+                        <h3 style=" color: rgba(138, 140, 141, 0.299);">Langues</h3>
+                        <p style=" color: rgba(138, 140, 141, 0.299);">Français <span class="language-stars">★★★★★</span></p>
+                        <p style=" color: rgba(138, 140, 141, 0.299);">Anglais <span class="language-stars">★★★★☆</span></p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+  <script type="module" src="../src/main.js"></script>
+  <script>
+    function highlightCurrentModel() {
+  // Récupère le nom du fichier courant (ex: model1.html)
+  const path = window.location.pathname;
+  const match = path.match(/model(\d+)\.html$/);
+  let current = 'model1';
+  if (match) {
+    current = 'model' + match[1];
+  }
+  document.querySelectorAll('.model-card').forEach(card => {
+    card.classList.toggle('selected', card.dataset.model === current);
+  });
+}
+highlightCurrentModel();
+
+  // Changement de modèle au clic
+  function switchModel(model, el) {
+    window.location.href = './'+ model + '.html';
+  }
+</script>
+  </script>
+
+</body>
+</html>
