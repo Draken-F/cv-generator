@@ -1,5 +1,7 @@
 import data from './data.json'
 import html2pdf from 'html2pdf.js';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 
 const setdata = (data) => {
   const wrapper = document.getElementById('cv-wrapper');
@@ -111,10 +113,6 @@ const setdata = (data) => {
   `;
 
   wrapper.innerHTML = html;
-  const urlparams = new URLSearchParams(window.location.search);
-  const model = urlparams.get('model');
-
-  document.getElementById('themecss').setAttribute('href', `./style/${model}.css`);
   const input = document.getElementById('imageInput');
     const preview = document.getElementById('preview');
 
@@ -186,14 +184,23 @@ document.getElementById('reset').addEventListener('click', resetcv);
 
 function downloadCVasPDF() {
   const element = document.getElementById('cv-wrapper');
-  const opt = {
-    margin:       [0.3, 0.3],
-    filename:     'cv.pdf',
-    image:        { type: 'jpeg', quality: 0.98 },
-    html2canvas:  { scale: 2, useCORS: true },
-    jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
-  };
-  html2pdf().set(opt).from(element).save();
+  html2canvas(element, { scale: 2, useCORS: true }).then(canvas => {
+    const imgData = canvas.toDataURL('image/jpeg', 1.0);
+    const pdf = new jsPDF({
+      orientation: 'portrait',
+      unit: 'mm',
+      format: 'a4'
+    });
+
+    // Calcul du ratio pour remplir la page A4
+    const pageWidth = 210;
+    const pageHeight = 297;
+    const imgWidth = pageWidth;
+    const imgHeight = canvas.height * imgWidth / canvas.width;
+
+    pdf.addImage(imgData, 'JPEG', 0, 0, imgWidth, imgHeight);
+    pdf.save('cv.pdf');
+  });
 }
 
 document.getElementById('downloadCV').addEventListener('click', downloadCVasPDF);
